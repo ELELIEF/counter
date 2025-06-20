@@ -1,16 +1,48 @@
-# counter
+# Counter
 
-A new Flutter project.
+一个基于 Flutter 的计数器应用，演示了如何使用多个自定义组件实现计数、减少、重置和状态显示等功能。
+![](data:image/png;base64,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)
 
-## Getting Started
+## 功能介绍
 
-This project is a starting point for a Flutter application.
+- **计数显示**：展示当前计数值。
+- **增加按钮**：通过右下角的浮动按钮，每点击一次计数加一。
+- **减少按钮**：点击“减少”按钮，计数减一。
+- **重置按钮**：点击“重置”按钮，计数归零。
+- **状态显示**：显示当前计数值是奇数还是偶数。
 
-A few resources to get you started if this is your first Flutter project:
+## 主要组件
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- `CounterDisplay`：计数值显示组件。
+- `CounterStatus`：计数状态（奇偶性）显示组件。
+- `DecrementButton`：减少按钮组件。
+- `ResetButton`：重置按钮组件。
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 运行方法
+
+1. 确保已安装 [Flutter](https://flutter.dev/docs/get-started/install) 环境。
+2. 克隆本项目到本地：
+   ```bash
+   git clone https://github.com/ELELIEF/counter.git
+   cd counter
+   ```
+3. 获取依赖：
+   ```bash
+   flutter pub get
+   ```
+4. 运行应用：
+   ```bash
+   flutter run
+   ```
+
+## 截图
+
+![screenshot](screenshot.png) <!-- 如有截图可替换 -->
+
+## 参考
+
+- [Flutter 官方文档](https://docs.flutter.dev/)
+- [Flutter 示例代码](https://docs.flutter.dev/cookbook)
+
+---
+如需反馈或贡献代码，欢迎提交 Issue 或 Pull Request！
